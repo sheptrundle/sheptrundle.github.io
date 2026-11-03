@@ -1,30 +1,36 @@
 ---
 import { site, skills } from '../data/site';
+import { withBase } from '../lib/url';
 ---
 <section class="hero" id="about">
   <div class="container">
-    <h1>{site.name}</h1>
-    <p class="tagline">{site.tagline} · {site.location}</p>
-    <ul class="contact-lines">
-      <li>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2.5" y="4.5" width="19" height="15" rx="2" /><path d="m3 6 9 7 9-7" />
-        </svg>
-        <a href={`mailto:${site.email}`}>{site.email}</a>
-      </li>
-      <li>
-        <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
-          <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
-        </svg>
-        <a href={site.linkedin} target="_blank" rel="noopener">{site.linkedinLabel}</a>
-      </li>
-      <li>
-        <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
-          <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-        </svg>
-        <a href={site.github} target="_blank" rel="noopener">{site.githubLabel}</a>
-      </li>
-    </ul>
+    <div class="intro">
+      <div class="intro-text">
+        <h1>{site.name}</h1>
+        <p class="tagline">{site.tagline} · {site.location}</p>
+        <ul class="contact-lines">
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="4.5" width="19" height="15" rx="2" /><path d="m3 6 9 7 9-7" />
+            </svg>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor">
+              <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zm1.78 13.02H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+            </svg>
+            <a href={site.linkedin} target="_blank" rel="noopener">{site.linkedinLabel}</a>
+          </li>
+          <li>
+            <svg viewBox="0 0 16 16" aria-hidden="true" fill="currentColor">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+            <a href={site.github} target="_blank" rel="noopener">{site.githubLabel}</a>
+          </li>
+        </ul>
+      </div>
+      <img class="headshot" src={withBase('headshot.jpg')} alt="Shep Trundle" width="800" height="800" />
+    </div>
 
     <div class="about">
       {site.about.map((para) => <p>{para}</p>)}
@@ -45,6 +51,10 @@ import { site, skills } from '../data/site';
   .hero { padding: 72px 0 56px; }
   h1 { font-size: clamp(34px, 5vw, 48px); font-weight: 700; letter-spacing: -0.02em; }
   .tagline { color: var(--muted); margin-top: 6px; }
+
+  /* Name, tagline and links on the left; square photo in the space on the right */
+  .intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
+  .headshot { width: 220px; height: 220px; object-fit: cover; border: 1px solid var(--text); border-radius: 4px; }
   .about { display: grid; gap: 14px; font-size: 18px; margin-top: 28px; max-width: 66ch; }
 
   /* Email / LinkedIn / GitHub: one per line, icon on the left */
@@ -60,6 +70,9 @@ import { site, skills } from '../data/site';
   dd { margin: 0; font-size: 15px; }
   @media (max-width: 760px) {
     .hero { padding: 48px 0 40px; }
+    /* Phones and small tablets: photo sits above the name */
+    .intro { grid-template-columns: 1fr; gap: 20px; }
+    .headshot { order: -1; width: 140px; height: 140px; }
     .about { font-size: 17px; }
     .row { grid-template-columns: 1fr; gap: 2px; }
   }
