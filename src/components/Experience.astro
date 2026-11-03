@@ -1,0 +1,40 @@
+---
+import { experience, otherExperience } from '../data/experience';
+---
+<section class="section" id="experience">
+  <div class="container">
+    <h2 class="section-label">Experience</h2>
+    <div class="stack">
+      {experience.map((job) => (
+        <article class="block reveal">
+          <header class="block-head">
+            <div>
+              <h3>{job.role}</h3>
+              <p class="sub">{job.org}, {job.location}</p>
+            </div>
+            <p class="meta">{job.start} – {job.end}</p>
+          </header>
+          <div class="block-body">
+            {job.bullets?.length
+              ? <ul class="list">{job.bullets.map((b) => <li>{b}</li>)}</ul>
+              : <p class="description">{job.description}</p>}
+            {job.links?.map((l) => (
+              <p class="more"><a href={l.href} target="_blank" rel="noopener">{l.label} →</a></p>
+            ))}
+          </div>
+        </article>
+      ))}
+      <p class="other">Also: {otherExperience.roles} ({otherExperience.dates})</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack { display: grid; gap: 16px; }
+  h3 { font-size: 18px; }
+  .description { line-height: 1.7; }
+  .block-body > .list:first-child { margin-top: 0; }
+  .list { gap: 8px; }
+  .more { margin-top: 10px; font-size: 14px; font-weight: 500; }
+  .other { color: var(--muted); font-size: 15px; margin-top: 4px; }
+</style>

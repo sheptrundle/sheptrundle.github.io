@@ -1,0 +1,54 @@
+---
+import { projects } from '../data/projects';
+import { withBase } from '../lib/url';
+
+// Links that point into /public (e.g. "papers/x.pdf") get the base path; full URLs pass through.
+const href = (h: string) => (/^https?:|^mailto:/.test(h) ? h : withBase(h));
+---
+<section class="section tone-navy" id="projects">
+  <div class="container">
+    <h2 class="section-label">Projects</h2>
+    <div class="stack">
+      {projects.map((p) => (
+        <article class="block reveal">
+          <header class="block-head">
+            <div>
+              <h3>{p.name}</h3>
+              <p class="sub">{p.context}</p>
+            </div>
+            {p.dates && <p class="meta">{p.dates}</p>}
+          </header>
+          <div class="block-body">
+            <p class="story">{p.why} {p.how} {p.result}</p>
+            <p class="tech"><span>Technology:</span> {p.tech.join(' · ')}</p>
+            {p.links.length > 0 && (
+              <p class="links">
+                {p.links.map((l) => <a href={href(l.href)} target="_blank" rel="noopener">{l.label} →</a>)}
+              </p>
+            )}
+            {p.image && (
+              <img
+                class="shot"
+                src={withBase(p.image)}
+                alt={`${p.name} screenshot`}
+                loading="lazy"
+                style={p.imageWidth ? `max-width: ${p.imageWidth}` : undefined}
+              />
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .stack { display: grid; gap: 20px; }
+  h3 { font-size: 18px; }
+  .story { line-height: 1.7; }
+  .tech { margin-top: 16px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .tech span { color: var(--text); font-weight: 500; }
+  .links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 10px; font-size: 14px; font-weight: 500; }
+  /* Screenshot sits inside the block body: full image, uncropped, framed */
+  .shot { display: block; width: 100%; height: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 4px; }
+</style>

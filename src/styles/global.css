@@ -1,0 +1,132 @@
+:root {
+  --navy: #232d4b;
+  --orange: #e57200;
+
+  --cream: #fbf4ec;      /* light sections: white with a touch of orange */
+  --navy-band: #232d4b;  /* dark sections */
+
+  --bg: var(--cream);
+  --surface: #ffffff;
+  --border: #e6ddd2;
+  --text: #232d4b;
+  --muted: #6b6f7b;
+  --link: #b85b00;
+  --banner: #232d4b;
+  --banner-muted: #b4bacb;
+
+  --slant: clamp(24px, 4vw, 48px);
+  --max: 960px;
+  --font: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #1a2138;
+    --navy-band: #10172b;
+    --surface: #212a45;
+    --border: #323c5c;
+    --text: #e8e9ee;
+    --muted: #9da3b5;
+    --link: #f08a2c;
+    --banner: #10172b;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: 64px; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 { margin: 0; line-height: 1.25; font-weight: 600; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; }
+img { max-width: 100%; display: block; }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.container { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+@media (max-width: 600px) { .container { padding: 0 16px; } }
+
+/* ---------- Sections: label on the left, content on the right ---------- */
+.section { padding: 72px 0; }
+.section .container { display: grid; grid-template-columns: 180px 1fr; gap: 32px; }
+.section-label {
+  font-size: 14px; font-weight: 600; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+.section-label::after {
+  content: ''; display: block; width: 28px; height: 3px; margin-top: 10px; background: var(--orange);
+}
+@media (max-width: 760px) {
+  .section { padding: 52px 0; }
+  .section .container { grid-template-columns: 1fr; gap: 20px; }
+}
+
+/* ---------- Navy bands, with slanted top and bottom edges ---------- */
+.tone-navy {
+  background: var(--navy-band);
+  --text: #ffffff;
+  --muted: #b4bacb;
+  --link: #f5a04a;
+  --border: rgb(255 255 255 / 0.14);
+  color: var(--text);
+  clip-path: polygon(0 var(--slant), 100% 0, 100% calc(100% - var(--slant)), 0 100%);
+  padding: calc(72px + var(--slant)) 0;
+}
+@media (max-width: 760px) { .tone-navy { padding: calc(52px + var(--slant)) 0; } }
+.tone-navy .section-label { color: #fff; }
+
+/* Blocks on a navy band keep light-card colors, and get orange headers for contrast */
+.tone-navy .block {
+  --text: #232d4b;
+  --muted: #6b6f7b;
+  --link: #b85b00;
+  --border: #e6ddd2;
+  color: var(--text);
+  border: none;
+}
+@media (prefers-color-scheme: dark) {
+  .tone-navy .block { --text: #e8e9ee; --muted: #9da3b5; --link: #f08a2c; --border: #323c5c; }
+}
+.tone-navy .block-head { background: var(--orange); }
+.tone-navy .block-head .sub,
+.tone-navy .block-head .meta { color: #fff; }
+
+/* ---------- Blocks ---------- */
+.block { background: var(--surface); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+.block-head {
+  background: var(--banner); color: #fff; padding: 14px 24px;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 4px 16px; flex-wrap: wrap;
+}
+.block-head h3, .block-head h4 { color: #fff; }
+.block-head .sub { color: var(--banner-muted); font-size: 15px; }
+.block-head .meta { color: var(--banner-muted); }
+.block-body { padding: 20px 24px 24px; }
+@media (max-width: 600px) { .block-head { padding: 14px 18px; } .block-body { padding: 18px; } }
+
+.meta { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+.tech { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 14px; }
+
+.list { padding-left: 18px; display: grid; gap: 4px; margin-top: 12px; }
+.list li::marker { color: var(--orange); }
+
+/* ---------- Scroll reveal (only when JS runs; Base.astro adds .js) ---------- */
+.js .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+.js .reveal.shown { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .js .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }

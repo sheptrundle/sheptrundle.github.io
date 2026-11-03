@@ -1,0 +1,28 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+---
+<section class="section" id="contact">
+  <div class="container">
+    <h2 class="section-label">Contact</h2>
+    <div>
+      <p class="lead">I’m always happy to connect and chat. Feel free to reach me through email, call, or text.</p>
+      <ul class="contact-list">
+        <li><span>Email</span><a href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li><span>Phone</span><a href={`tel:+1${site.phone.replace(/\D/g, '')}`}>{site.phone}</a></li>
+      </ul>
+    </div>
+  </div>
+</section>
+<footer class="footer">
+  <div class="container">© {year} {site.name}</div>
+</footer>
+
+<style>
+  .lead { font-size: 18px; }
+  .contact-list { list-style: none; margin-top: 16px; border-top: 1px solid var(--border); }
+  .contact-list li { display: grid; grid-template-columns: 100px 1fr; padding: 10px 0; border-bottom: 1px solid var(--border); }
+  .contact-list span { color: var(--muted); font-size: 14px; }
+  .contact-list a { overflow-wrap: anywhere; }
+  .footer { background: var(--navy); color: #c9cdd8; font-size: 13px; padding: 20px 0; border-top: 3px solid var(--orange); }
+</style>
