@@ -5,10 +5,6 @@ import { site, skills } from '../data/site';
   <div class="container">
     <h1>{site.name}</h1>
     <p class="tagline">{site.tagline} · {site.location}</p>
-    <div class="about">
-      {site.about.map((para) => <p>{para}</p>)}
-    </div>
-
     <ul class="contact-lines">
       <li>
         <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -30,6 +26,10 @@ import { site, skills } from '../data/site';
       </li>
     </ul>
 
+    <div class="about">
+      {site.about.map((para) => <p>{para}</p>)}
+    </div>
+
     <dl class="skills">
       {skills.map((g) => (
         <div class="row">
@@ -45,10 +45,10 @@ import { site, skills } from '../data/site';
   .hero { padding: 72px 0 56px; }
   h1 { font-size: clamp(34px, 5vw, 48px); font-weight: 700; letter-spacing: -0.02em; }
   .tagline { color: var(--muted); margin-top: 6px; }
-  .about { display: grid; gap: 14px; font-size: 18px; margin-top: 24px; max-width: 66ch; }
+  .about { display: grid; gap: 14px; font-size: 18px; margin-top: 28px; max-width: 66ch; }
 
   /* Email / LinkedIn / GitHub: one per line, icon on the left */
-  .contact-lines { list-style: none; display: grid; gap: 10px; margin-top: 28px; }
+  .contact-lines { list-style: none; display: grid; gap: 10px; margin-top: 22px; }
   .contact-lines li { display: flex; align-items: center; gap: 12px; min-width: 0; }
   .contact-lines svg { width: 20px; height: 20px; flex: none; color: var(--navy); }
   .contact-lines a { font-weight: 500; overflow-wrap: anywhere; }
