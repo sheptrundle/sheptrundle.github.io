@@ -18,11 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: withastro/action@v3
-        # If the repo is NOT named sheptrundle.github.io, uncomment and set the repo name:
-        # env:
-        #   BASE_PATH: /MyPortfolio
+      - uses: actions/checkout@v7
+      - uses: withastro/action@v6
+        with:
+          node-version: 24 # Astro 7 needs Node >= 22.23.4
+        # The repo is sheptrundle.github.io, so the site is served from "/" and no BASE_PATH is needed.
 
   deploy:
     needs: build
@@ -32,4 +32,4 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
