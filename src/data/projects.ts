@@ -30,7 +30,7 @@ export const projects: Project[] = [
       'River Rat averages hourly NOAA radar rain over each gauge’s watershed and splits 24 years of USGS flow history into a library of 367,000 past storms. For a new storm, it replays the 60 most similar past storms from today’s flow and checks each outcome against the reach’s runnable range, which gives a daily chance of running up to 6 days out.',
     result:
       'It is live at river-rat.app, forecasting about 975 reaches through 391 gauges. On 61,991 held-out storms it cut forecast error by 40% compared with the best baseline, and its probabilities are well calibrated: 70% forecasts came true 73% of the time.',
-    tech: ['Python', 'PostgreSQL', 'React', 'TypeScript', 'Docker on Google Cloud'],
+    tech: ['Python', 'PostgreSQL', 'React', 'TypeScript', 'Docker', 'Claude Code for CLI'],
     links: [
       { label: 'Live site', href: 'https://river-rat.app' },
       { label: 'Source code', href: 'https://github.com/sheptrundle/RiverRat' },
