@@ -52,9 +52,15 @@ import { withBase } from '../lib/url';
   h1 { font-size: clamp(34px, 5vw, 48px); font-weight: 700; letter-spacing: -0.02em; }
   .tagline { color: var(--muted); margin-top: 6px; }
 
-  /* Name, tagline and links on the left; square photo in the space on the right */
-  .intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center; }
-  .headshot { width: 220px; height: 220px; object-fit: cover; border: 1px solid var(--text); border-radius: 4px; }
+  /* Name, tagline and links on the left; square photo on the right.
+     The intro is as wide as the About paragraphs (same 18px / 66ch), so the photo's
+     right edge lines up with the paragraphs' right edge. */
+  .intro {
+    display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 32px; align-items: center;
+    font-size: 18px; max-width: 66ch;
+  }
+  .intro-text { font-size: 16px; }
+  .headshot { width: 220px; height: 220px; object-fit: cover; border: 2px solid var(--text); border-radius: 4px; margin-right: 24px; }
   .about { display: grid; gap: 14px; font-size: 18px; margin-top: 28px; max-width: 66ch; }
 
   /* Email / LinkedIn / GitHub: one per line, icon on the left */
@@ -72,7 +78,7 @@ import { withBase } from '../lib/url';
     .hero { padding: 48px 0 40px; }
     /* Phones and small tablets: photo sits above the name */
     .intro { grid-template-columns: 1fr; gap: 20px; }
-    .headshot { order: -1; width: 140px; height: 140px; }
+    .headshot { order: -1; width: 140px; height: 140px; margin-right: 0; }
     .about { font-size: 17px; }
     .row { grid-template-columns: 1fr; gap: 2px; }
   }
