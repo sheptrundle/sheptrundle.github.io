@@ -29,8 +29,12 @@ const links = [
     ul { gap: 12px; }
     nav a { font-size: 13px; }
   }
-  @media (max-width: 420px) {
-    ul { gap: 10px; }
-    nav a { font-size: 12px; }
+  /* Phones: the name and five links don't fit on one row, so the links get their own row
+     under the name. Only applies below 520px; wider screens are unaffected. */
+  @media (max-width: 520px) {
+    .inner { height: auto; flex-direction: column; align-items: stretch; gap: 2px; padding-top: 10px; padding-bottom: 8px; }
+    nav { width: 100%; }
+    ul { justify-content: space-between; gap: 8px; }
+    nav a { font-size: 13px; padding: 4px 0; }
   }
 </style>

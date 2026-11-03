@@ -130,3 +130,6 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 
 :focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
+
+/* On phones the nav is two rows tall (see Nav.astro), so anchor jumps need more clearance */
+@media (max-width: 520px) { html { scroll-padding-top: 96px; } }
