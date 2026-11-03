@@ -66,13 +66,13 @@ export const schools: School[] = [
         code: 'CS 2130',
         name: 'Computer Systems & Organization 1',
         description:
-          'The computer from just above silicon to just below modern languages: low-level C and Assembly, how data is stored in memory, and hardware design from gates and registers up.',
+          'Low-level C and Assembly code, binary foundations, how data is stored in memory, and hardware design from gates and registers up.',
       },
       {
         code: 'EVSC 3020',
         name: 'GIS Methods',
         description:
-          'The theory of Geographic Information Systems and their applications across the physical and social sciences, using several GIS software packages.',
+          'Geographic Information Systems and their applications across the physical and social sciences, using several GIS software packages, culminating in a final project on Charlottesville Zoning.',
       },
       {
         code: 'DS 1002',
@@ -83,7 +83,7 @@ export const schools: School[] = [
         code: 'DS 1001',
         name: 'Foundations of Data Science',
         description:
-          'An introduction to the field of data science: computing environments, visualization, machine learning, and bias and fairness analysis, applied in a semester-long project.',
+          'An introduction to the field of data science: computing environments, visualization, bias and fairness analysis.',
       },
     ],
   },
@@ -96,7 +96,7 @@ export const schools: School[] = [
       {
         code: 'COMP3411',
         name: 'Artificial Intelligence',
-        description: 'Search, knowledge representation, reasoning under uncertainty, and machine learning foundations.',
+        description: 'Search algorithms, Q-learning, machine learning, and neural networks.',
       },
       {
         code: 'COMP3311',
@@ -104,10 +104,10 @@ export const schools: School[] = [
         description: 'Relational modeling, SQL, normalization, query processing, and transactions.',
       },
       {
-        code: 'COMP6453',
+        code: 'COMP3453',
         name: 'Applied Cryptography',
         description:
-          'Modern cryptographic primitives and protocols, culminating in the threshold hash-based signatures project.',
+          'Modern cryptographic primitives and protocols, secrecy, hashing, quantum computing.',
       },
     ],
   },
