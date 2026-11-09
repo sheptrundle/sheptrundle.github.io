@@ -27,9 +27,9 @@ export const projects: Project[] = [
     why:
       'As a whitewater paddler, I kept running into the same question: will my river actually be runnable on the day I want to go? Gauges only tell you what a river is doing now.',
     how:
-      'River Rat averages hourly NOAA radar rain over each gauge’s watershed and splits 24 years of USGS flow history into a library of 367,000 past storms. For a new storm, it replays the 60 most similar past storms from today’s flow and checks each outcome against the reach’s runnable range, which gives a daily chance of running up to 6 days out.',
+      'River Rat averages hourly NOAA radar rain over each gauge’s watershed and splits 24 years of USGS flow history into a library of past storms. For a new storm, it replays the 60 most similar past storms from today’s flow and checks each outcome against the reach’s runnable range, which gives a daily chance of running up to 6 days out.',
     result:
-      'It is live at river-rat.app, forecasting about 975 reaches through 391 gauges. On 61,991 held-out storms it cut forecast error by 40% compared with the best baseline, and its probabilities are well calibrated: 70% forecasts came true 73% of the time.',
+      'It is live at river-rat.app, with the rain response of 400+ rivers modeled. On 62,000 held-out storms it cut forecast error by 40% compared with a baseline, and its probabilities hold up: rivers ran 84% of the time when predicted at 70–90%.',
     tech: ['Python', 'PostgreSQL', 'React', 'TypeScript', 'Docker', 'Claude Code for CLI'],
     links: [
       { label: 'Live site', href: 'https://river-rat.app' },
