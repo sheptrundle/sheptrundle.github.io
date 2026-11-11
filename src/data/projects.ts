@@ -11,9 +11,13 @@ export interface Project {
   tech: string[];
   /** Live site, paper, report, code... Full URLs, or paths under /public like "papers/x.pdf". */
   links: { label: string; href: string }[];
-  /** Path under /public, e.g. "projects/river-rat.png". Shown at the bottom of the block. */
+  /** Path under /public, e.g. "projects/chess.png". Shown at the bottom of the block. */
   image?: string;
-  /** How wide the image may get, e.g. "80%" or "260px". Defaults to the full width of the text. */
+  /** Playable video under /public, e.g. "projects/demo.mp4". Shown instead of `image` when set. */
+  video?: string;
+  /** Still frame shown on the video before it's played, e.g. "projects/demo-poster.jpg". */
+  poster?: string;
+  /** How wide the image or video may get, e.g. "80%" or "260px". Defaults to the full width of the text. */
   imageWidth?: string;
 }
 
@@ -35,7 +39,8 @@ export const projects: Project[] = [
       { label: 'Live site', href: 'https://river-rat.app' },
       { label: 'Source code', href: 'https://github.com/sheptrundle/RiverRat' },
     ],
-    image: 'projects/river-rat.png',
+    video: 'projects/river-rat-demo.mp4',
+    poster: 'projects/river-rat-demo-poster.jpg',
     imageWidth: '95%',
   },
   {

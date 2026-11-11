@@ -26,7 +26,20 @@ const href = (h: string) => (/^https?:|^mailto:/.test(h) ? h : withBase(h));
                 {p.links.map((l) => <a href={href(l.href)} target="_blank" rel="noopener">{l.label} →</a>)}
               </p>
             )}
-            {p.image && (
+            {p.video ? (
+              <video
+                class="shot"
+                controls
+                playsinline
+                preload="metadata"
+                poster={p.poster ? withBase(p.poster) : undefined}
+                aria-label={`${p.name} demo video`}
+                style={p.imageWidth ? `max-width: ${p.imageWidth}` : undefined}
+              >
+                <source src={withBase(p.video)} type="video/mp4" />
+                <a href={withBase(p.video)}>Watch the {p.name} demo →</a>
+              </video>
+            ) : p.image && (
               <img
                 class="shot"
                 src={withBase(p.image)}
@@ -51,4 +64,5 @@ const href = (h: string) => (/^https?:|^mailto:/.test(h) ? h : withBase(h));
   .links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 10px; font-size: 14px; font-weight: 500; }
   /* Screenshot sits inside the block body: full image, uncropped, framed */
   .shot { display: block; width: 100%; height: auto; margin-top: 18px; border: 1px solid var(--border); border-radius: 4px; }
+  video.shot { aspect-ratio: 16 / 9; background: #000; }
 </style>
